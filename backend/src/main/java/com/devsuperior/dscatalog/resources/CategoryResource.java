@@ -32,7 +32,7 @@ public class CategoryResource {
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
-			@RequestParam(value = "orderBy", defaultValue = "moment") String orderBy){
+			@RequestParam(value = "orderBy", defaultValue = "name") String orderBy){
 		
 		PageRequest pageRequest = PageRequest.of(page,linesPerPage,Direction.valueOf(direction),orderBy);
 		Page<CategoryDTO> list =  service.findAllPaged(pageRequest);
@@ -46,6 +46,7 @@ public class CategoryResource {
 		
 		return ResponseEntity.ok().body(category);
 	}
+	
 	
 	@PostMapping	
 	public ResponseEntity<CategoryDTO> insert(@RequestBody CategoryDTO dto){
