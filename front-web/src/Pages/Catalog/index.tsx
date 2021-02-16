@@ -4,7 +4,7 @@ import ProductCard from './components/ProductCard'
 import './styles.scss'
 import { makeRequest } from '../../core/utils/requests';
 import { ProductsResponse } from '../../core/types/Product';
-import ProductCardLoader from './components/productCardLoader';
+import ProductCardLoader from './components/Loaders/ProductCardLoader';
 const Catalog = () => {
     //buscar lista de produtos 
     //Quando a lista de produtos estiver disponivel, listar os produtos dinamicamente
