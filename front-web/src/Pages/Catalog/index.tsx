@@ -5,17 +5,19 @@ import './styles.scss'
 import { makeRequest } from 'core/utils/requests';
 import { ProductsResponse } from 'core/types/Product';
 import ProductCardLoader from './components/Loaders/ProductCardLoader';
+import Pagination from 'core/components/Pagination';
 const Catalog = () => {
     //buscar lista de produtos 
     //Quando a lista de produtos estiver disponivel, listar os produtos dinamicamente
 
     const [productsReponse, setProductsResponse] = useState<ProductsResponse>();
     const [isLoading, setIsLoading] = useState(false);
+    const [activePage, setActivePage] = useState(0);
 
     useEffect(() => {
 
         const params = {
-            page: 0,
+            page: activePage,
             linesPerPage: 12
 
         }
@@ -26,7 +28,7 @@ const Catalog = () => {
             .finally(() => {
                 setIsLoading(false);
             });
-    }, []);
+    }, [activePage]);
 
     return (
         <div className="catalog-container">
@@ -40,6 +42,13 @@ const Catalog = () => {
                     ))
                 )}
             </div>
+            {productsReponse && (
+                <Pagination 
+                    totalPages={productsReponse?.totalPages} 
+                    activePage = {activePage}
+                    onChange={page =>setActivePage(page)}
+                />
+            )}
         </div>
     );
 };
