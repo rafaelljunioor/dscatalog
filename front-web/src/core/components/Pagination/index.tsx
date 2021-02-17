@@ -11,7 +11,7 @@ type Props = {
 
 const Pagination = ({totalPages,activePage,onChange}:Props) => {
 
-    const items = generateList(5);
+    const items = generateList(totalPages);
     return (
         <div className="pagination-container">
 
