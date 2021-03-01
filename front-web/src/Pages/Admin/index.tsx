@@ -8,8 +8,6 @@ const Admin = () => (
    <div className="admin-container">
       <Navbar />
       <div className="admin-content">
-         
-
          <Switch>
             <Route path="/admin/products" >
                <Products/> 
