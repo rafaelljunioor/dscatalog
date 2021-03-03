@@ -15,6 +15,7 @@ const BaseForm  =({title,children}:Props) => {
         history.push('../');
     }
 
+
     return (
 
        
